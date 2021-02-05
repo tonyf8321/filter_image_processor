@@ -1,5 +1,8 @@
 # filter_image_processor
 
+The main purpose of this program is to allow individuals to improve the quality of images. It also allows for experimenting with filters to cater to each individuals needs.
+
+Made with Python version 3.9.1
 
 # Setup
 Get the associated repository file and folder to a virtual envrionment folder and activate the environment accordingly.
@@ -115,3 +118,9 @@ FILT_IMG_FOLD = '<processed_images_folder_name_here>'
 ```
 
 **Note**: Images processed will be converted to *.png* format, and the name of the photo to be changed to <<originalName>,<filterOptName>,.png>.
+
+# Why
+
+This project was made in order to improve image quality, ranging from family photos, to photos from games, to whatever else a person can think of, the uses for this are endless!
+
+There are uses for this like having an extremely poor quality photo where a person may be trying to identify what a figure is in a photo. Through using certains filters on that photo, the person can quickly identify what the figure is. I have personally used it like this which help the identification of some nocturnal animal skulking around my front yard.
