@@ -1,69 +1,117 @@
 # filter_image_processor
-# -----BELOW UNFINISHED-----NEED FORMATTING EDIT-----
 
-Step 1:
 
-Choose what var1(this will dictate the filter applied to the image) is,
-for example, between the apostrophes type
-one of the option:
-SHARPEN, EMBOSS, FIND_EDGES, EDGE_ENHANCE, EDGE_ENHANCE_MORE, DETAIL,
-CONTOUR,
-FIND_EDGES, BLUR, SMOOTH, SMOOTH_MORE
-if any option were missed, checkout
-https://pillow.readthedocs.io/en/stable/reference/ImageFilter.html
-?highlight=imagefilter
+# Setup
+Get the associated repository file and folder to a virtual envrionment folder and activate the environment accordingly.
+
+Install dependencies.
+
+As a reminder:
+```sh
+$ pip install -r requirements.txt
+```
+
+# Usage:
+
+### Step 1:
+
+Choose what FILT_OPT(this will dictate the filter applied to the image) is,
+
+```sh
+FILT_OPT = 'FIND_EDGES'
+```
+
+for example, the options that can be chosen are:
+
+SHARPEN, EMBOSS, FIND_EDGES, EDGE_ENHANCE, EDGE_ENHANCE_MORE, DETAIL,CONTOUR,FIND_EDGES, BLUR, SMOOTH, SMOOTH_MORE
+
+If any options were missed, checkout
+https://pillow.readthedocs.io/en/stable/reference/ImageFilter.html?highlight=imagefilter
 for a list of filters.
 
+### Step 2:
 
-Step 2:
-The filter that you have selected in var1, copy and paste that filter name to
-filtered_img = img.filter(ImageFilter.<FilterNameGoesHere>), for example,
-if you selected filter CONTOUR, you will
-have filtered_img = img.filter(ImageFilter.CONTOUR) on line 43
-  
-  
-Step 3:
-ensure that this main file is in the same folder as the folder that has
-your images after that is done,
-in between the apostrophes of imgPath = '<FolderNameHere>' type in the
-folder name that has your images. As an
-example, if you have a folder name coolPhotos then what you will have is
-imgPath = 'coolPhotos'
-  
-  
-Step 4:
-Looking at imgName = '<imgNameGoesHere>', enter your image name between
-the apostrophes to set the image on this
-program to be further manipulated. As an example, if you have a image
-names bestImage, then what you will have is
-imgName = 'bestImage'
-  
-  
-Step 5:
-Where you see the variable, "checkGrey = False", you may have it equaled
-to False or True to enable the grey filter
-after the main filter is applied, this means it will apply step 1's filter
-and then if you have checkGrey = True
-then the image will be converted into a black and white type of image.
+The filter that you have selected in **FILT_OPT**, copy and paste that filter name to
+filtered_img = img.filter(ImageFilter.<FilterNameGoesHere>), 
 
+```sh
+def save_normal_option():
+    ...
+    filtered_img_inp = img.filter(ImageFilter.<filter_opt_typed_here>)
+    ...
+```
 
-Step 6:
-Very important like all the other steps, step six involves changing the
-extension to match that of the original image,
-so if you have an image, for example, named "smileyImage.jpg" you will
-look at the extension <.jpg> and type that
-between the apostrophes, so in this example you would have imgExt = '.jpg'
-Another example, say you have
-imageZebras.gif then you'd have imgExt = '.gif'
+for example, following the previous FILT_OPT in step 1, we would set it to *FIND_EDGES*, giving:
 
+filtered_img_inp = img.filter(ImageFilter.FIND_EDGES)
+    
+### Step 3:
 
-Step 7
-Assuming you are running this on pycharm hold Shift and tap F10 and ensure
-that it highlights this program with
-its name to ensure everything runs accordingly. Once ran, a new folder
-will be made named filteredImages with a new
-filtered image(s) made by you. Expand filteredImages and double click on
-the image to view it, and rinse and repeat
-to form higher quality photos. Look into DETAIL and SHARPEN and
-EDGE_ENHANCE for the best upgraded quality pictures.
-Note: images will be converted to png format
+Images may be put into the *imgsGathered* directory. 
+
+If they are not in the directory that *IMG_PATH = 'imgsGathered'* specifies, the program will have issues if the following below is not carried out.
+
+Images do not have to be put into *imgsGathered* directory.
+If this is the case, ensure the folder with images is in the same directory as *imgProcess.py*.
+
+Next, change the value for IMG_PATH to the newly added directory that has the images:
+
+```sh
+IMG_PATH = '<directory_with_your_images>'
+```
+
+### Step 4:
+
+Enter the name of an image into the IMG_NAME value area:
+
+```sh
+IMG_NAME = '<image_name_only_here>'
+```
+
+For example, if we have an image, *pineapple.jpg*, what is enter would be:
+
+```sh
+IMG_NAME = 'pineapple'
+```
+
+### Step 5:
+
+Enter *True* or *False* for the CHECK_GREY value in code (default is False):
+
+This option will convert the image to black and white, and nothing else further.
+
+```sh
+CHECK_GREY = <True_or_False>
+```
+
+**Important: when this is set to True, the filter option will be negated**.
+
+With this in mind, setting to True than moving the image back to the IMG_PATH selected directory, it can be further filter while being grey if desired.
+
+### Step 6
+
+Set the IMG_EXT value to match the extension on the selected image:
+
+```sh
+IMG_EXT = '.<file_extension_goes_here>'
+```
+
+So, if we have *pie.jpg* we get *.jpg* and set the code to look like:
+
+```sh
+IMG_EXT = '.jpg'
+```
+
+### Step 7:
+
+Set the FILT_IMG_FOLD directory name (default is *filteredImages*).
+
+If the folder does not exists, one will be created and store the processed image.
+
+This will save the processed images to this folder. Name as desired.
+
+```sh
+FILT_IMG_FOLD = '<processed_images_folder_name_here>'
+```
+
+**Note**: Images processed will be converted to *.png* format, and the name of the photo to be changed to <<originalName>,<filterOptName>,.png>.
