@@ -12,7 +12,7 @@ FILT_IMG_FOLD = 'filteredImages'
 
 def save_grey_option():
     filtered_img_inp = img.convert('L')
-    filtered_img_inp.save(f'./filteredImages/{IMG_NAME}Grey.png', 'png')
+    filtered_img_inp.save(f'./{FILT_IMG_FOLD}/{IMG_NAME}Grey.png', 'png')
 
 
 def save_normal_option():
@@ -20,7 +20,7 @@ def save_normal_option():
     # for example, filtered_img_inp = img.filter(
     # ImageFilter.<change_to_match_<FILT_OPT>>)
     filtered_img_inp = img.filter(ImageFilter.FIND_EDGES)
-    filtered_img_inp.save(f'./filteredImages/{IMG_NAME}{FILT_OPT}.png', 'png')
+    filtered_img_inp.save(f'./{FILT_IMG_FOLD}/{IMG_NAME}{FILT_OPT}.png', 'png')
 
 
 if __name__ == '__main__':
