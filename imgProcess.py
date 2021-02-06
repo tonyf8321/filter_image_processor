@@ -25,7 +25,6 @@ def save_normal_option():
 
 if __name__ == '__main__':
     with Image.open(f'./{IMG_PATH}/{IMG_NAME}{IMG_EXT}') as img:
-        filtered_img = img.filter(ImageFilter.CONTOUR)
         try:
             if CHECK_GREY:
                 save_grey_option()
