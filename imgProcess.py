@@ -17,8 +17,6 @@ def save_grey_option():
 
 def save_normal_option():
     # DON'T FORGET TO CHANGE THIS OPTION ACCORDINGLY
-    # for example, filtered_img_inp = img.filter(
-    # ImageFilter.<change_to_match_<FILT_OPT>>)
     filtered_img_inp = img.filter(ImageFilter.FIND_EDGES)
     filtered_img_inp.save(f'./{FILT_IMG_FOLD}/{IMG_NAME}{FILT_OPT}.png', 'png')
 
